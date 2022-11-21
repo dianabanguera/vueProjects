@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <title>Practicas con Vue JS</title>
+</head>
+<style>
+    .color_rojo {
+        color: red;
+    }
+    .color_verde {
+        color: green;
+    }
+</style>
+<body>
+    <h1>Aprendiendo VUE</h1>
+    <div id="app">
+        <p>{{ saludar }}</p>
+        <h2>Directivas Vue: Se utilizan de forma exclusiva en Vue y alteran el DOM</h2>
+        <h3>v-show: solo oculta el elemento</h3>
+        <p v-show="numero <= 10">Texto solo si activo=true</p>
+        <h3>v-if: condicional que decide si se va a considerar todo el elemento del renderizado o no, puede hacer que se desaparezcan bloques enteros de código si se decide no tenerlos en cuenta</h3>
+        <p v-if="activo === true">Si es activo</p>
+        <p v-else>No es activo</p>
+        <h3>v-for: directiva para sentencias repetitivas</h3>
+
+        <ul>
+            <li v-for="n in 5" :key="n">Numero: {{n}}</li>
+        </ul>
+
+        <h3>v-html: Directiva para pintar html</h3>
+        <p v-html="blog"></p>
+        <h3>Binding: cambia la informacion de manera reactiva, es decir que reacciona al cambio</h3>
+        <p>
+            <input type="text" v-model="texto">
+        </p>
+        <p>{{ texto }}</p>
+
+        <h3>Eventos y funciones</h3>
+        <button @click="saludando('saludo desde el html')">Saludar</button>
+        <p></p>
+        <input type="text" placeholder="Nombres" v-model="full_name">
+        <a href="#" @click="verificarFullName()">Verificar Nombre</a>
+        <p style="color: red;">{{ validation_error }}</p>
+        <h3>Binding de clases</h3>
+        <label for="nombre" :class="{ color_verde:text_success, color_rojo:text_error }">
+            Nombres:
+        </label>
+        <input type="text" v-model="nombre">
+        <button @click="verificarNombre()">Comprobar</button>
+        <h3>Binding de styles</h3>
+        <input type="text" v-model="sizetxt">
+        <button @click="cambiarTexto()">Cambiar tamaño</button>
+        <p :style="{ fontSize: font_texto + 'px' }">Curso Vue.ps</p>
+    </div>
+ 
+
+    <script type="text/javascript" src="vuemin.js"></script>
+    <!--<script-- type="text/javascript" src="vue.js"></script-->
+    <script type="text/javascript" src="practica.js"></script>
+</body>
+</html>
